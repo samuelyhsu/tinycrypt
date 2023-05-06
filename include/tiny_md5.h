@@ -1,7 +1,8 @@
 /**
  * \file md5.h
  *
- *  Based on TropicSSL: Copyright (C) 2017 Shanghai Real-Thread Technology Co., Ltd
+ *  Based on TropicSSL: Copyright (C) 2017 Shanghai Real-Thread Technology Co.,
+ * Ltd
  *
  *  Based on XySSL: Copyright (C) 2006-2008  Christophe Devine
  *
@@ -41,90 +42,90 @@
  * \brief          MD5 context structure
  */
 typedef struct {
-    uint32_t total[2]; /*!< number of bytes processed  */
-    uint32_t state[4]; /*!< intermediate digest state  */
-    uint8_t buffer[64];   /*!< data block being processed */
+  uint32_t total[2];  /*!< number of bytes processed  */
+  uint32_t state[4];  /*!< intermediate digest state  */
+  uint8_t buffer[64]; /*!< data block being processed */
 
-    uint8_t ipad[64]; /*!< HMAC: inner padding        */
-    uint8_t opad[64]; /*!< HMAC: outer padding        */
+  uint8_t ipad[64]; /*!< HMAC: inner padding        */
+  uint8_t opad[64]; /*!< HMAC: outer padding        */
 } tiny_md5_context;
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-    /**
-     * \brief          MD5 context setup
-     *
-     * \param ctx      context to be initialized
-     */
-    void tiny_md5_starts(tiny_md5_context * ctx);
+/**
+ * \brief          MD5 context setup
+ *
+ * \param ctx      context to be initialized
+ */
+void tiny_md5_starts(tiny_md5_context *ctx);
 
-    /**
-     * \brief          MD5 process buffer
-     *
-     * \param ctx      MD5 context
-     * \param input    buffer holding the  data
-     * \param ilen     length of the input data
-     */
-    void tiny_md5_update(tiny_md5_context * ctx, uint8_t *input, int ilen);
+/**
+ * \brief          MD5 process buffer
+ *
+ * \param ctx      MD5 context
+ * \param input    buffer holding the  data
+ * \param ilen     length of the input data
+ */
+void tiny_md5_update(tiny_md5_context *ctx, uint8_t *input, int ilen);
 
-    /**
-     * \brief          MD5 final digest
-     *
-     * \param ctx      MD5 context
-     * \param output   MD5 checksum result
-     */
-    void tiny_md5_finish(tiny_md5_context * ctx, uint8_t output[16]);
+/**
+ * \brief          MD5 final digest
+ *
+ * \param ctx      MD5 context
+ * \param output   MD5 checksum result
+ */
+void tiny_md5_finish(tiny_md5_context *ctx, uint8_t output[16]);
 
-    /**
-     * \brief          Output = MD5( input buffer )
-     *
-     * \param input    buffer holding the  data
-     * \param ilen     length of the input data
-     * \param output   MD5 checksum result
-     */
-    void tiny_md5(uint8_t *input, int ilen, uint8_t output[16]);
+/**
+ * \brief          Output = MD5( input buffer )
+ *
+ * \param input    buffer holding the  data
+ * \param ilen     length of the input data
+ * \param output   MD5 checksum result
+ */
+void tiny_md5(uint8_t *input, int ilen, uint8_t output[16]);
 
-    /**
-     * \brief          MD5 HMAC context setup
-     *
-     * \param ctx      HMAC context to be initialized
-     * \param key      HMAC secret key
-     * \param keylen   length of the HMAC key
-     */
-    void tiny_md5_hmac_starts(tiny_md5_context * ctx, uint8_t *key, int keylen);
+/**
+ * \brief          MD5 HMAC context setup
+ *
+ * \param ctx      HMAC context to be initialized
+ * \param key      HMAC secret key
+ * \param keylen   length of the HMAC key
+ */
+void tiny_md5_hmac_starts(tiny_md5_context *ctx, uint8_t *key, int keylen);
 
-    /**
-     * \brief          MD5 HMAC process buffer
-     *
-     * \param ctx      HMAC context
-     * \param input    buffer holding the  data
-     * \param ilen     length of the input data
-     */
-    void tiny_md5_hmac_update(tiny_md5_context * ctx, uint8_t *input, int ilen);
+/**
+ * \brief          MD5 HMAC process buffer
+ *
+ * \param ctx      HMAC context
+ * \param input    buffer holding the  data
+ * \param ilen     length of the input data
+ */
+void tiny_md5_hmac_update(tiny_md5_context *ctx, uint8_t *input, int ilen);
 
-    /**
-     * \brief          MD5 HMAC final digest
-     *
-     * \param ctx      HMAC context
-     * \param output   MD5 HMAC checksum result
-     */
-    void tiny_md5_hmac_finish(tiny_md5_context * ctx, uint8_t output[16]);
+/**
+ * \brief          MD5 HMAC final digest
+ *
+ * \param ctx      HMAC context
+ * \param output   MD5 HMAC checksum result
+ */
+void tiny_md5_hmac_finish(tiny_md5_context *ctx, uint8_t output[16]);
 
-    /**
-     * \brief          Output = HMAC-MD5( hmac key, input buffer )
-     *
-     * \param key      HMAC secret key
-     * \param keylen   length of the HMAC key
-     * \param input    buffer holding the  data
-     * \param ilen     length of the input data
-     * \param output   HMAC-MD5 result
-     */
-    void tiny_md5_hmac(uint8_t *key, int keylen,
-              uint8_t *input, int ilen, uint8_t output[16]);
+/**
+ * \brief          Output = HMAC-MD5( hmac key, input buffer )
+ *
+ * \param key      HMAC secret key
+ * \param keylen   length of the HMAC key
+ * \param input    buffer holding the  data
+ * \param ilen     length of the input data
+ * \param output   HMAC-MD5 result
+ */
+void tiny_md5_hmac(uint8_t *key, int keylen, uint8_t *input, int ilen,
+                   uint8_t output[16]);
 
 #ifdef __cplusplus
 }
 #endif
-#endif              /* md5.h */
+#endif /* md5.h */

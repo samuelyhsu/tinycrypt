@@ -12,6 +12,7 @@ if GetDepend(['TINYCRYPT_USING_AES_SAMPLE']):
 if GetDepend(['TINYCRYPT_USING_MD5_SAMPLE']):
     src += Glob('samples/md5_sample.c')
 
-group = DefineGroup('TinyCrypt', src, depend = ['PKG_USING_TINYCRYPT'], CPPPATH = CPPPATH)
+group = DefineGroup('TinyCrypt', src, depend=[
+                    'PKG_USING_TINYCRYPT'], CPPPATH=CPPPATH)
 
 Return('group')
